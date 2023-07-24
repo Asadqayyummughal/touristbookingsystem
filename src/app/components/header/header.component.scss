@@ -1,0 +1,135 @@
+header{
+    background-image: url('../../../assets/images/bannerimg1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 73px;
+    position: relative;
+    .nav-rapper{
+        nav{
+            ul{
+                list-style: none;
+                display: flex;
+                gap: 30px;
+                li{
+                   position: relative;
+                    a{
+                        text-decoration:none;
+                        list-style: none;
+                        color: white;
+                        opacity: 0.9;
+                        font-family: "poppins-regular";
+                        font-size: 1.2rem;
+                    }
+               :hover{
+                color: white;
+                opacity: 1;
+                font-weight: bold;
+                &::before{
+                    position: absolute;
+                    bottom: -5px;
+                    left: 2px;
+                    content: '';
+                    width: 85%;
+                    height: .2vh;
+                    background-color: #FFC000;
+                    
+                    
+                }
+
+               }
+                }
+            }
+        }
+    }
+   
+
+    .hamburger{
+        button{
+            background: none;
+            i{
+                font-size: 35px;
+                color: white;
+                border: none;
+               
+               
+            }
+
+        }
+        
+    }
+
+    .banner-rapper{
+        color: white;
+
+        .banner-head{
+            font-family:"poppins-black";
+
+        }
+       
+
+        
+    }
+
+}
+
+@media (min-width:400px) and (max-width:767px) {
+
+       header{
+
+        .nav-rapper
+        {
+            nav{
+
+                ul{
+                    display: none;   
+                    flex-direction: column;
+                    height: 100vh;
+                    width: 100%;
+                    position:fixed;
+                    top: 11%;
+                    left: 0%;
+                    z-index: 6;
+                    padding: 10px;
+                    background: orange;
+                    overflow-x: hidden;
+                    padding-left: 100px;
+                   
+                     li{
+                        margin-top: 30px;
+                         width: 80%; 
+                    }
+                
+                }
+            }
+        }
+       
+
+       }
+     
+
+ }
+
+
+.my-hide{
+    display: none;
+ } 
+ .my-show{
+    display: block !important;
+ }
+ .fix{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+   
+ }
+  @keyframes comeAndGo {
+      0% {
+        transform: scale(1); /* Initial state: normal size */
+      }
+      100% {
+        transform: scale(1.2); /* Final state: scaled up */
+      }
+    }
+
+    

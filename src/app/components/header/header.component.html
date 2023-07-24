@@ -1,0 +1,132 @@
+<header [ngClass]="is_fixed? 'fix':''">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 col-lg-4 col-md-4 col-sm-2 px-sm-0 ">
+                <div class="logo">
+                  <img src="../../../assets/images/logo.png" alt="">
+                </div>
+
+            </div>
+            <div class="col-9 col-lg-8 col-md-8 col-sm-10 d-flex align-items-center  justify-content-end px-sm-0">
+
+                 <div class="nav-rapper">
+                    <nav            >
+                        <ul #navbar [ngClass]="is_active? 'my-hide':'my-show'">
+                         <li>
+                             <a href="">Home</a>
+     
+                         </li>
+                         <li>
+                             <a href="">Booking</a>  
+                             
+                         </li>
+                         <li>
+                             <a href="">About Us</a>
+                         </li>
+                         <li>
+                             <a href="">Contact Us</a>
+                         </li>
+                        </ul>
+                     </nav>
+                 </div>
+               
+                <div class="hamburger d-block d-md-none d-lg-none ">
+                    <button class="border-0 " #open (click)="showNav()" [ngClass]="is_active? 'my-show':'my-hide'">
+                        <i class="fa fa-align-justify" style="color: white;font-size: 33px;"></i>
+                    </button>
+                   
+                    <button class="border-0 " #close (click)="hideNav()" [ngClass]="is_active?'my-hide':'my-show'">
+                        <i class="fa fa-close" style="color: white;font-size: 38px;"></i>
+
+                    </button>
+                
+                </div>
+
+            </div>
+           
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col col-sm-auto mt-5">
+                <div class="banner-rapper mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-auto">
+                            <div class="row row-cols-1">
+                                <div class="col text-center ">
+                                    <p class="banner-pr-head orange-text">FAST, AFFORDABLE AND SECURE</p>
+                                </div>
+                                <div class="col text-center ">
+                                    <h1 class="banner-head display-4">The Best Way To Get <br> <span>Around Town</span> </h1>
+                                    
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                 <div class="row mt-5 justify-content-center flex-wrap gy-3">
+                    <div class="col-6 col-lg-2 col-md-3 col-sm-5">
+
+                        <span class="card-sm d-flex bg-light border-5  rounded-3 text-dark justify-content-around p-2">
+                            <span><i class="fa fa-map-marker"></i></span>
+                            <span class="fade-color p2" >Start Destination</span>  
+                        </span>
+                           
+                    </div>
+                    <div class="col-6 col-lg-2 col-md-3 col-sm-5">
+                        <span class="d-flex bg-light border-5 rounded-3 text-dark justify-content-around p-2">
+                            <span><i class="fa fa-map-marker"></i></span>
+                            <span class="fade-color p1">End Destination</span>  
+                        </span>
+
+
+                    </div>
+                    <div class="col-6 col-lg-2 col-md-3 col-sm-5">
+                        <span class="d-flex bg-light border-5 rounded-3 text-dark justify-content-around p-2">
+                            <span>
+                                <i class="fa fa-clock-o"></i>
+                            </span>
+
+                            <span class="fade-color p1">Time and Date</span>  
+                        </span>
+                    </div>
+                    <div class="col-6 col-lg-2 col-md-3 col-sm-5">
+                        <span class="d-flex bg-light border-5 rounded-3 text-dark justify-content-around p-2">
+                            <span><i class="fa fa-car"></i></span>
+                            <span class="fade-color p2" >Car Class</span>  
+                        </span>
+                    </div>
+                    <div class="col-6 col-lg-2 col-md-3 col-sm-5 ">
+                        <span class="d-flex bg-light border-5 rounded-3 text-dark justify-content-around p-2">
+                            <span><i class="fa fa-phone"></i></span>
+                            <span class="fade-color p2">Your Phone</span>  
+                        </span>
+                    </div>
+                 </div>
+
+                 <div class="row  justify-content-center mt-5">
+                    <div class="col-10">
+                        <p class="p4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum accusantium exercitationem reprehenderit tempore dolor sed quisquam corrupti nisi beatae et aut voluptas enim impedit molestias debitis, quidem ut quod magnam.</p>
+                          
+                    </div>
+                 </div>
+
+                   <div class="row mt-5">
+                      <div class="col text-center">
+
+                        <div class="banner-btn">
+                            <button class="btn-lg rounded-pill border-0 text-light taxy-btn px-5">Book Now</button>
+                        </div>
+                            
+                      </div>
+                   </div>
+
+                   
+                </div>
+               
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
