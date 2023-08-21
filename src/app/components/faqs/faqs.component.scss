@@ -1,0 +1,52 @@
+.faqs-header{
+    background: url('../../../assets/images/contactusBgImg.png');
+    background-position: center;
+    background-size: cover;
+    background-position:top;
+    width: 100%;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    &::after{
+        width: 100%;
+        content: "";
+        position: absolute;
+        top:0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        z-index: 0;
+        opacity: 60%;
+        background-color: #000000;
+
+    }
+    .faqs-rapper{
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.faq-item
+{
+    font-size: 1rem;
+    font-family: "poppins-semibold";
+    color:#273553;
+}
+.accordian-btn{
+    font-size: 1rem;
+    font-family: "poppins-medium";
+    color:#273553;
+    
+}
+
+.accordian-right-header{
+    color: #373737;
+    font-size: 1.2rem;
+    font-family: "poppins-semibold"
+
+}
+
+.faqs-grad{
+    background-image: linear-gradient(45deg, #f26824,#ffc000);
+
+}

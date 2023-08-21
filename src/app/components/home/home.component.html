@@ -1,0 +1,1066 @@
+<section class="home-banner banner-background">
+  <div class="home-rapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <app-header></app-header>
+        </div>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col col-sm-auto mt-3">
+          <div class="banner-rapper mt-3">
+            <div class="row justify-content-center">
+              <div class="col-md-auto">
+                <div class="row row-cols-1 justify-content-center">
+                  <div class="col-md-auto text-center">
+                    <p class="banner-pr-head orange-text">
+                      FAST, AFFORDABLE AND SECURE
+                    </p>
+                  </div>
+                  <div class="col text-center py-3">
+                    <h1 class="banner-head display-4">
+                      The Best Way To Get <br />
+                      <span>Around Town </span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="my-5 input-style">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="row">
+                      <div class="col-6 pb-2 d-flex px-1 pt-2 pe-0">
+                        <a
+                          class="d-flex text-center p-2"
+                          #standard_anchor
+                          (click)="toggleClass(standard_anchor, 'standard')"
+                          [class.active-btn]="active_key == 'standard'"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="19.5"
+                            height="26"
+                            viewBox="0 0 19.5 26"
+                            class="p-1"
+                          >
+                            <path
+                              id="Icon_awesome-map-marker-alt"
+                              data-name="Icon awesome-map-marker-alt"
+                              d="M8.748,25.475C1.37,14.779,0,13.681,0,9.75a9.75,9.75,0,0,1,19.5,0c0,3.931-1.37,5.029-8.748,15.725a1.219,1.219,0,0,1-2,0Zm1-11.663A4.063,4.063,0,1,0,5.688,9.75,4.062,4.062,0,0,0,9.75,13.813Z"
+                              fill="#ffa700"
+                            />
+                          </svg>
+                          Standard
+                        </a>
+                        <a
+                          class="d-flex text-center p-2"
+                          #schedule_anchor
+                          (click)="toggleClass(schedule_anchor, 'schedule')"
+                          [class.active-btn]="active_key == 'schedule'"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="23.741"
+                            class="p-1"
+                            height="26"
+                            viewBox="0 0 23.741 26"
+                          >
+                            <path
+                              id="schedule-22"
+                              d="M69.51,29.41H49.422A1.811,1.811,0,0,1,47.6,27.617V7.893A1.809,1.809,0,0,1,49.422,6.1h1.827V7a2.739,2.739,0,0,0,5.478,0V6.1h5.478V7a2.739,2.739,0,0,0,5.478,0V6.1H69.51a1.811,1.811,0,0,1,1.827,1.793V27.617A1.815,1.815,0,0,1,69.51,29.41Zm0-17.033H49.422v15.24H69.51V12.377Zm-1.827,4.48H51.249v-2.69H67.683v2.69Zm0,4.483H51.249V18.65H67.683v2.69Zm0,4.483H51.249v-2.69H67.683v2.69ZM64.916,8.79a1.779,1.779,0,0,1-1.8-1.766V5.176a1.8,1.8,0,0,1,3.593,0V7.024A1.783,1.783,0,0,1,64.916,8.79Zm-10.956,0a1.779,1.779,0,0,1-1.8-1.766V5.176a1.8,1.8,0,0,1,3.593,0V7.024A1.783,1.783,0,0,1,53.961,8.79Z"
+                              transform="translate(-47.596 -3.41)"
+                              fill="#fff"
+                            />
+                          </svg>
+                          Schedule
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="row justify-content-center flex-wrap p-3 gx-3 gy-2 gray-background"
+                  style="border-radius: 0 10px 10px 10px"
+                  #schedule_row
+                  *ngIf="active_key == 'schedule'"
+                >
+                  <div class="col-6 col-lg-3 col-md-4 col-sm-5">
+                    <span
+                      class="card-sm d-flex flex-column bg-light border-5 rounded-3 text-dark"
+                    >
+                      <label
+                        for="form-control "
+                        class="ps-2 pt-3 poppins-semi-bold"
+                        >Start Destination
+                      </label>
+
+                      <input
+                        class="form-control form-control-sm border-0"
+                        list="startDestination"
+                        type="text"
+                        #start
+                        (input)="searchStartDestination(start.value)"
+                        placeholder="search here"
+                        aria-label=".form-control-sm example"
+                        style="background: none"
+                      />
+
+                      <datalist id="startDestination" *ngIf="start_destination">
+                        <option
+                          *ngFor="let country of start_destination"
+                          value="{{ country }}"
+                        ></option>
+                      </datalist>
+                    </span>
+                  </div>
+                  <div class="col-6 col-lg-3 col-md-4 col-sm-5">
+                    <span
+                      class="d-flex flex-column bg-light border-5 rounded-3 text-dark"
+                    >
+                      <label for=" form-control " class="ps-2 poppins-semi-bold"
+                        >End Destination
+                      </label>
+
+                      <input
+                        class="form-control form-control-sm border-0"
+                        #end
+                        list="endDestination"
+                        type="text"
+                        placeholder="search here"
+                        aria-label=".form-control-lg example"
+                        (input)="searchEndDestination(end.value)"
+                        style="background: none"
+                      />
+                      <datalist id="endDestination" *ngIf="end_destination">
+                        <option
+                          *ngFor="let country of end_destination"
+                          value="{{ country }}"
+                        ></option>
+                      </datalist>
+                    </span>
+                  </div>
+                  <div class="col-6 col-lg-2 col-md-4 col-sm-5">
+                    <span
+                      class="d-flex flex-column bg-light border-5 rounded-3 text-dark"
+                    >
+                      <label for="" class="ps-2 poppins-semi-bold"
+                        >Time & Date</label
+                      >
+
+                      <input
+                        class="form-control border-0"
+                        type="datetime-local"
+                        placeholder="11:00pm"
+                        style="background-color: none"
+                      />
+                    </span>
+                  </div>
+                  <div class="col-6 col-lg-2 col-md-4 col-sm-5">
+                    <span
+                      class="d-flex flex-column bg-light border-5 rounded-3 text-dark justify-content-around"
+                    >
+                      <label for="" class="ps-2 poppins-semi-bold"
+                        >car class</label
+                      >
+
+                      <input
+                        class="form-control border-0"
+                        list="datalistOptions"
+                        id="exampleDataList"
+                        placeholder="economy"
+                        style="background: none"
+                      />
+                      <datalist id="datalistOptions">
+                        <option value="San Francisco"></option>
+                        <option value="New York"></option>
+                        <option value="Seattle"></option>
+                        <option value="Los Angeles"></option>
+                        <option value="Chicago"></option>
+                      </datalist>
+                    </span>
+                  </div>
+
+                  <div
+                    class="cokl-6 col-lg-2 col-md-4 col-sm-5 d-flex align-items-center"
+                  >
+                    <div class="banner-btn">
+                      <button
+                        class="form-control-lg border-0 text-light taxy-btn py-2"
+                      >
+                        schedule Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="row justify-content-center flex-wrap p-3 gx-3 gy-2 gray-background"
+                  #standard_row
+                  style="border-radius: 0 10px 10px 10px"
+                  *ngIf="active_key == 'standard'"
+                >
+                  <div class="col-6 col-lg-3 col-md-4 col-sm-5">
+                    <span
+                      class="card-sm d-flex flex-column bg-light border-5 rounded-3 text-dark"
+                    >
+                      <label for="form-control " class="ps-2 poppins-semi-bold"
+                        >Start Destination
+                      </label>
+
+                      <input
+                        class="form-control form-control-sm border-0"
+                        list="startDestination"
+                        type="text"
+                        #start
+                        (input)="searchStartDestination(start.value)"
+                        placeholder="Search here"
+                        aria-label=".form-control-sm example"
+                        style="background: none"
+                      />
+
+                      <datalist id="startDestination" *ngIf="start_destination">
+                        <option
+                          *ngFor="let country of start_destination"
+                          value="{{ country }}"
+                        ></option>
+                      </datalist>
+                    </span>
+                  </div>
+                  <div class="col-6 col-lg-3 col-md-4 col-sm-5">
+                    <span
+                      class="d-flex flex-column bg-light border-5 rounded-3 text-dark"
+                    >
+                      <label for=" form-control " class="ps-2 poppins-semi-bold"
+                        >End Destination
+                      </label>
+
+                      <input
+                        class="form-control form-control-sm border-0"
+                        #end
+                        list="endDestination"
+                        type="text"
+                        placeholder="search here"
+                        aria-label=".form-control-lg example"
+                        (input)="searchEndDestination(end.value)"
+                        style="background: none"
+                      />
+                      <datalist id="endDestination" *ngIf="end_destination">
+                        <option
+                          *ngFor="let country of end_destination"
+                          value="{{ country }}"
+                        ></option>
+                      </datalist>
+                    </span>
+                  </div>
+                  <div class="col-6 col-lg-2 col-md-4 col-sm-5">
+                    <span
+                      class="d-flex flex-column bg-light border-5 rounded-3 text-dark"
+                    >
+                      <label for="" class="ps-2 poppins-semi-bold"
+                        >Time & Date</label
+                      >
+
+                      <input
+                        class="form-control border-0"
+                        type="datetime-local"
+                        #datetime_input
+                        placeholder="11:00pm"
+                        style="background-color: none"
+                      />
+                    </span>
+                  </div>
+                  <div class="col-6 col-lg-2 col-md-4 col-sm-5">
+                    <span
+                      class="d-flex flex-column bg-light border-5 rounded-3 text-dark justify-content-around"
+                    >
+                      <label for="" class="ps-2 poppins-semi-bold"
+                        >car class</label
+                      >
+
+                      <input
+                        class="form-control border-0"
+                        list="datalistOptions"
+                        id="exampleDataList"
+                        placeholder="economy"
+                        style="background: none"
+                      />
+                      <datalist id="datalistOptions">
+                        <option value="San Francisco"></option>
+                        <option value="New York"></option>
+                        <option value="Seattle"></option>
+                        <option value="Los Angeles"></option>
+                        <option value="Chicago"></option>
+                      </datalist>
+                    </span>
+                  </div>
+
+                  <div
+                    class="cokl-6 col-lg-2 col-md-4 col-sm-5 d-flex align-items-center"
+                  >
+                    <div class="banner-btn">
+                      <button
+                        class="form-control-lg border-0 text-light taxy-btn p-sm-3 p-2"
+                      >
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-sec">
+  <div class="container py-5">
+    <div class="row gx-5 py-5 justify-content-center">
+      <div class="col-12 col-sm-12 col-lg-6 justify-content-center">
+        <img
+          src="../../../assets/images/peoples.png"
+          alt=""
+          class="w-100 h-100"
+          
+        />
+      </div>
+      <div class="col-12  col-lg-6 d-flex flex-column gy-2  mt-2">
+        <div class="home-rapper">
+          <div class="home-head">
+            <div class="row">
+              <div class="col-auto">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32.374"
+                  height="8"
+                  viewBox="0 0 32.374 8"
+                >
+                  <g
+                    id="Group_30574"
+                    data-name="Group 30574"
+                    transform="translate(-227 -1786.865)"
+                  >
+                    <path
+                      id="Path_73919"
+                      data-name="Path 73919"
+                      d="M0,0H30.374"
+                      transform="translate(228 1793.865)"
+                      fill="none"
+                      stroke="#ffc000"
+                      stroke-linecap="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      id="Path_73920"
+                      data-name="Path 73920"
+                      d="M0,0H18"
+                      transform="translate(240.377 1787.865)"
+                      fill="none"
+                      stroke="#ffc000"
+                      stroke-linecap="round"
+                      stroke-width="2"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <div class="col">
+                <p class="orange-fade-text">ABOUT OUR COMPANY</p>
+              </div>
+            </div>
+          </div>
+          <h2 class="poppins-bold mt-">
+            Whereever You Need To Go We'll Take You There
+          </h2>
+          <div class="home-info mt-4">
+            <p class="p3-regular">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Quibusdam, perferendis. Ut officia molestias beatae tempore?
+              Nesciunt reiciendis id ullam ipsam ea accusamus voluptatibus
+              repellat beatae. Similique amet consequuntur odit ipsam!. Lorem
+              ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
+              perferendis. Ut officia molestias beatae tempore? Nesciunt
+              reiciendis id ullam ipsam ea accusamus voluptatibus repellat
+              beatae. Similique amet consequuntur odit ipsam!
+            </p>
+          </div>
+          <div class="home-btn mt-5 text-center text-lg-start">
+            <button
+              class="btn-lg rounded-pill border-0 text-light taxy-btn px-5"
+            >
+              More Abot Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-sec my-5">
+  <div class="container">
+    <div class="row g-2 py-5">
+      <div class="col-12 col-lg-5 col-md-12 .col-sm-12">
+        <div class="row">
+          <div class="col-auto d-flex flex-column">
+            <span class="h-line-2 my-1"></span>
+            <span class="h-line-1 my-1"></span>
+          </div>
+          <div class="col-auto">
+            <p class="orange-fade-text">WHAT WE OFFER</p>
+          </div>
+        </div>
+        <div class="row row-cols-1 gx-5">
+          <div class="col">
+            <h2 class="poppins-bold">Our Featured Services</h2>
+          </div>
+          <div class="col-md-auto mt-4">
+            <p class="p2-regular">
+              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+              erat, sed diam voluptua. At vero eos et accusam et justo duo
+              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+              invidunt ut labore et dolore
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-7 col-md-12 .col-sm-12 gx-2 gy-5">
+        <div
+          class="row row-cols-lg-3 row-cols-md-2 justify-content-center gy-3 row-cols-1 px-0"
+        >
+          <div class="col-lg-4 col-md-5 col-sm-6 col-8">
+            <div class="small-card p-3">
+              <div class="crd-img">
+                <img
+                  src="../../../assets/images/fcard-img1.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="crd-body text-center">
+                <h5 class="poppins-medium mt-2">Rapid City Transfer</h5>
+                <p class="crd-txt p-0">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempore
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-8">
+            <div class="small-card p-3">
+              <div class="crd-img">
+                <img
+                  src="../../../assets/images/fcard-img2.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="crd-body text-center">
+                <h5 class="poppins-medium mt-2">Home Pickups</h5>
+                <p class="crd-txt p-0">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempore
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-5 col-sm-6 col-8">
+            <div class="small-card p-3">
+              <div class="crd-img">
+                <img
+                  src="../../../assets/images/fcard-img3.png"
+                  alt=""
+                  class="img-fluid"
+                />
+              </div>
+              <div class="crd-body text-center">
+                <h5 class="poppins-medium mt-2">Home Pickups</h5>
+                <p class="crd-txt p-0">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempore
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="location-sec my-5 py-5">
+  <div class="loc-rapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="row justify-content-center ">
+          <div class="col-auto col-md-auto ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32.374" height="8" viewBox="0 0 32.374 8">
+                <g id="Group_30574" data-name="Group 30574" transform="translate(-227 -1786.865)">
+                  <path id="Path_73919" data-name="Path 73919" d="M0,0H30.374" transform="translate(228 1793.865)" fill="none" stroke="#ffc000" stroke-linecap="round" stroke-width="2"/>
+                  <path id="Path_73920" data-name="Path 73920" d="M0,0H18" transform="translate(240.377 1787.865)" fill="none" stroke="#ffc000" stroke-linecap="round" stroke-width="2"/>
+                </g>
+              </svg>
+        </div>
+          <div class="col-auto col-md-auto">
+            <p class="orange-fade-text">LOCATIONS</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-7 text-center mt-3">
+        <h2 class="poppins-bold mt-3">Destination Of Your Dreams</h2>
+        <p class="p4-regular mt-3">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore ed dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accus
+        </p>
+      </div>
+    </div>
+    <div class="row my-3 gy-3 g-sm-5 justify-content-center">
+      <div class="col-12">
+        <div class="outer-rapper">
+          <owl-carousel-o [options]="citiesOption">
+            <ng-template
+              carouselSlide
+              [dataMerge]="1"
+              *ngFor="let city of cities_carousel; let i = index"
+              id="slide-{{ i }}"
+            >
+              <div class="col-10 mx-auto">
+                <div class="loc-card-rapper large-crd">
+                  <div class="card p-3 border-1 rounded-3">
+                    <img src="{{ city.src }}" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title poppins-semi-bold">
+                        {{ city.title }}
+                      </h5>
+                      <p class="card-text p1">{{ city.desc }}</p>
+                      <span class="text-warning d-flex g-3">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<section class="trip-sec py-5">
+  <div class="container">
+    <div class="row py-5 justify-content-center g-5">
+      <div class="col-11 col-md-10 col-sm-10 col-lg-6">
+        <div>
+          <img
+            src="../../../assets/images/trip-girl-removebg-preview.png"
+            class="image-style"
+          />
+        </div>
+      </div>
+      <div class="col-12 col-sm-10 col-lg-6">
+        <h2 class="poppins-bold">Enjoy Your Nice Trips With Us</h2>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+        eirmod tempor invidunt ut labore ed dolore magna aliquyam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
+        ame. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+        nonumy eirmod tempor invidunt ut labore et d
+        <div class="row row-cols-md-2 row-cols-1 my-3 g-5">
+          <div class="col d-flex gap-2">
+            <div class="trip-circle">
+              <svg
+                width="100"
+                height="100"
+                class="d-flex justify-content-center align-items-center"
+              >
+                <circle
+                  cx="45"
+                  cy="45"
+                  r="35"
+                  fill="whitesmoke"
+                  stroke="orange"
+                />
+              </svg>
+              <div
+                class="col position-absolute top-50 start-50 translate-middle"
+                style="transform: translate(-30%, -50%) !important"
+              >
+                <img
+                  src="../../../assets/images/3504016.png"
+                  alt=""
+                  class="image-style"
+                />
+              </div>
+            </div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
+              <p class="p2-regular mt-4">8 Years Of Experience</p>
+            </div>
+          </div>
+          <div class="col d-flex gap-2">
+            <div class="trip-circle">
+              <svg width="100" height="100">
+                <circle
+                  cx="45"
+                  cy="45"
+                  r="35"
+                  fill="whitesmoke"
+                  stroke="orange"
+                />
+              </svg>
+              <div class="w-50 h-50 trip-icon">
+                <img
+                  src="../../../assets/images/customer-24.png"
+                  alt=""
+                  class="image-style"
+                />
+              </div>
+            </div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
+              <p class="p2-regular mt-4">10K Happy Customers</p>
+            </div>
+          </div>
+          <div class="col d-flex gap-">
+            <div class="trip-circle">
+              <svg width="100" height="100">
+                <circle
+                  cx="45"
+                  cy="45"
+                  r="35"
+                  fill="whitesmoke"
+                  stroke="orange"
+                />
+              </svg>
+              <div class="trip-icon w-50 h-50">
+                <img
+                  src="../../../assets/images/Icon feather-map-pin.png"
+                  alt=""
+                  class="image-style"
+                />
+              </div>
+            </div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
+              <p class="p2-regular mt-4">400+ Destinations</p>
+            </div>
+          </div>
+          <div class="col d-flex gap-">
+            <div class="trip-circle">
+              <svg width="100" height="100">
+                <circle
+                  cx="45"
+                  cy="45"
+                  r="35"
+                  fill="whitesmoke"
+                  stroke="orange"
+                />
+              </svg>
+              <div class="trip-icon w-50 h-50">
+                <img
+                  src="../../../assets/images/badge.png"
+                  alt=""
+                  class="image-style"
+                />
+              </div>
+            </div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
+              <p class="p2-regular mt-4">Certified Agency</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-sec my-5">
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-sm-12 col-md-10 col-lg-5">
+        <div class="row">
+          <div class="col-auto d-flex flex-column">
+            <span class="h-line-2 my-1"></span>
+            <span class="h-line-1 my-1"> </span>
+          </div>
+          <div class="col-auto">
+            <p class="orange-fade-text">PRICING</p>
+          </div>
+        </div>
+        <h2 class="poppins-bold">Our Featured Services</h2>
+        <p class="p2-regular mt-3">
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing
+          elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+        </p>
+      </div>
+    </div>
+
+    <div class="row  mb-5 g-5 flex-wrap justify-content-center">
+      <div class="col-12 col-md-5 col-sm-12 col-lg-4">
+        <div class="pricing-card-rapper">
+          <div class="card p-3 border-1 rounded-5">
+            <div class="card-body">
+              <P class="orange-fade-text p1">STARTER</P>
+              <h5 class="card-title poppins-semi-bold fs-2 fw-bold">$20</h5>
+              <p class="card-text p1">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              </p>
+              <div class="w-100 border-2 border-bottom my-3"></div>
+              <ul class="p-0 list-unstyled py-2 p1 poppins-medium">
+                <li class="list-item d-flex g-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Assistance With Revolutionary Ideas</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+              </ul>
+              <div class="price-btn text-center">
+                <button
+                  class="btn-lg rounded-pill border-0 text-dark px-4 my-2"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-7 col-sm-12 col-lg-4">
+        <div class="pricing-card-rapper">
+          <div class="card p-3 border-1 rounded-5">
+            <div class="card-body">
+              <P class="orange-fade-text p1">BASIC</P>
+              <h5 class="card-title poppins-semi-bold fs-2 fw-bold">$80</h5>
+              <p class="card-text p1">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              </p>
+              <div class="w-100 border-2 border-bottom my-3"></div>
+
+              <ul class="p-0 list-unstyled py-2 p1 poppins-medium">
+                <li class="list-item d-flex g-2">
+                  <span class="ps-4"> </span>Faster Tools For Developing
+                  Applications.
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>Assistance With Revolutionary Ideas
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                  <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+               
+                
+              </ul>
+              <div class="text-center">
+                <button
+                  class="btn-lg rounded-pill   px-4 my-2 border-0 "
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8 col-sm-12 col-lg-4">
+        <div class="pricing-card-rapper">
+          <div class="card p-3 border-1 rounded-5">
+            <div class="card-body">
+              <P class="orange-fade-text p1">BASIC</P>
+              <h5 class="card-title poppins-semi-bold fs-2 fw-bold">$200</h5>
+              <p class="card-text p1">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+              </p>
+              <div class="w-100 border-2 border-bottom my-3"></div>
+
+              <ul class="p-0 list-unstyled py-2 p1 poppins-medium">
+                <li class="list-item d-flex g-2">
+                  <span class="ps-4"> </span>Faster Tools For Developing
+                  Applications.
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>Assistance With Revolutionary Ideas
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2">
+                  <span class="ps-4"> </span>Faster Tools For Developing
+                  Applications.
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>Assistance With Revolutionary Ideas
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+                <li class="list-item d-flex g-2 mt-2">
+                  <span class="ps-4"> </span>
+                  <div>Faster Tools For Developing Applications.</div>
+                </li>
+               
+                
+                
+              </ul>
+              <div class="text-center">
+                <button
+                  class="btn-lg rounded-pill border-0  px-4 my-2"
+                >
+                  Buy Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-sec my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col-auto d-flex flex-column">
+            <span class="h-line-2 my-1"></span>
+            <span class="h-line-1 my-1"> </span>
+          </div>
+          <div class="col-auto">
+            <p class="orange-fade-text">TESTIMONIALS</p>
+          </div>
+
+          <h2 class="poppins-bold">What Our Client Says About Us</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial-carousels my-5">
+    <div class="container position-relative">
+      <div class="quotes d-flex">
+        <span class="w-100">
+          <img
+            src="../../../assets/images/quotes-img.png"
+            alt=""
+            class="img-fluid"
+          />
+        </span>
+        <span class="w-100">
+          <img
+            src="../../../assets/images/quotes-img.png"
+            alt=""
+            class="img-fluid"
+          />
+        </span>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row py-5">
+        <div class="col-12">
+          <div class="crds-rapper">
+            <owl-carousel-o
+              #testimonialCarousel
+              [options]="testimonialsOptions"
+              
+            >
+            <ng-container  *ngFor="let item of testimonial_carousel; let i = index">
+              <ng-template
+                carouselSlide
+                [dataMerge]="1"
+                id="owl-slide-{{ i }}"
+              >
+                <div class="col-11 py-3">
+                  <div class="testimonial-crd py-4 bg-light px-2 w-100">
+                    <div
+                      class="row row-cols-3 px-sm-5 py-1 gx-2 justify-content-center align-items-center"
+                    >
+                      <div class="col ">
+                        <div class="user-img">
+                          <img src="{{item.img }}" alt=""/>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <span
+                          class="d-flex flex-column lign-items-end w-100 h-100 mt-3"
+                        >
+                          <h2
+                            class="poppins-bold p1"
+                            style="margin: 0px; padding: 0px"
+                          >
+                            {{ item.title }}
+                          </h2>
+                          <p
+                            class="p-0 m-0 lato"
+                            style="margin: 0px; padding: 0px"
+                          >
+                            {{ item.sub_title }}
+                          </p>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <div class="dim-quotes d-flex mx-3">
+                          <span>
+                            <img
+                              src={{item.quoted_image}}
+                              alt=""
+                          /></span>
+                          <span>
+                            <img
+                              src={{item.quoted_image}}
+                              alt=""
+                          /></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col px-5 pt-1 pt-1 py-3">
+                      <p class="quoted-lato pt-0  mt-0 pt-0">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Eum accusantium dignissimos cupiditate maxime
+                        rerum repudiandae nemo is amet dolor sit accusanti.
+                      </p>
+                    </div>
+
+                    <div class="card-image d-flex justify-content-end">
+                      <img
+                        src="../../../assets/images/wavy-img.png"
+                        alt=""
+                        class="image-style w-75"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+
+            </ng-container>
+              
+            </owl-carousel-o>
+          </div>
+        </div>
+        <div class="col d-flex justify-content-end bg-warning pe-5">
+          <button
+            class="border-0 bg-warning fs-2 text-light"
+            (click)="testimonialCarousel.prev()"
+          >
+            <i class="fa fa-long-arrow-left"></i>
+          </button>
+          <button
+            class="border-0 bg-warning fs-2 text-light"
+            (click)="testimonialCarousel.next()"
+          >
+            <i class="fa fa-long-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-sec my-5">
+  <div class="container lightgray-bg">
+    <div class="row justify-content-center py-5">
+      <div class="col-12 col-sm-10 col-lg-6 text-center py-5">
+        <h2 class="poppins-medium display-6">Book Services Now</h2>
+        <p class="p2 mt-4">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+          nemo similique consequuntur iste, quidem minima quae laudantium ipsam
+          ab. Minus quod dolore expedita vitae et eveniet sapiente animi dolores
+          temporibus.
+        </p>
+        <button
+          class="book-btn btn-lg rounded-pill border-0 text-light btn-dark px-4 mt-4 poppins-medium"
+        >
+          Book Now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+

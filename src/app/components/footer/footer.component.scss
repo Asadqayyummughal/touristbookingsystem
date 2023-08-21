@@ -1,0 +1,136 @@
+footer {
+    color: white;
+    background-color: black;
+    position: relative;
+
+    p {
+        font-family: "poppins-medium";
+    }
+
+    .footer-list {
+        list-style: none;
+        li:not(:first-child){
+            margin-top: 20px;
+        }
+        li{
+            
+            margin-top: 10px;
+
+            a {
+                font-size: 12px;
+                font-family: "poppins-medium";
+                text-decoration: none;
+                color: white;
+            }
+
+        }
+    }
+
+    .footer-rapper {
+        position: relative;
+        overflow: hidden;
+        &::before {
+            background: url('../../../assets/images/footerimage.png');
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 32%;
+            height: 217%;
+            transform: rotate(180deg);
+            background-position: right;
+            background-repeat: no-repeat;
+          
+        }
+
+    } 
+
+    .copy-right {
+        background-color: #202020;
+
+        span {
+            a {
+                color: white;
+            }
+        }
+
+    }
+}
+@media (min-width:992px) and ( max-width:1200px) {
+    footer{
+
+        .footer-rapper{
+
+            &::before{
+                width: 40%;
+                height: 177%;
+                transform: rotate(180deg);
+
+
+            }
+
+        }
+        
+
+    }
+    
+}
+
+
+@media (min-width:768px) and ( max-width:991px) {
+    footer{
+
+        .footer-rapper{
+
+            &::before{
+                width: 50%;
+                height: 102%;
+                transform: rotate(180deg);
+
+
+            }
+
+        }
+        
+
+    }
+    
+}
+@media (min-width:576px) and ( max-width:768px) {
+    footer{
+
+        .footer-rapper{
+
+            &::before{
+                width: 62%;
+                height: 102%
+
+
+            }
+
+        }
+        
+
+    }
+    
+}
+@media (min-width:200px) and ( max-width:575px) {
+    footer{
+
+        .footer-rapper{
+
+            &::before{
+                width: 100%;
+                height: 100%;
+                transform: rotate(180deg);
+
+
+            }
+
+        }
+        
+
+    }
+    
+}
+

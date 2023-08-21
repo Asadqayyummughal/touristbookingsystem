@@ -1,0 +1,81 @@
+.contact-us-sec{
+    background: url('../../../assets//images/contactusBgImg.png');
+    background-position: center;
+    background-size: cover;
+    background-position:top;
+    width: 100%;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+     &::after{
+         width: 100%;
+         content: "";
+         position: absolute;
+         top:0px;
+         left: 0px;
+         bottom: 0px;
+         right: 0px;
+         z-index: 0;
+         opacity: 60%;
+         background-color: #000000;
+ 
+     }
+     .contactus-rapper{
+         position: relative;
+         z-index: 2;
+     }
+
+     
+}
+
+.contact-us-info-sec{
+  
+    .branches-rapper{
+        .card{
+            background-color: #F7F7F7;
+            a{
+                cursor: pointer;
+
+              }
+    //    &:hover{
+    //     background-color: #FFC000;     
+    //    }
+        }
+        
+        
+    }
+    .contactus-card-rapper{
+        p{
+            font-family:"poppins-medium";
+            color: black;
+            opacity: 60%;
+            letter-spacing:.1rem;
+            font-size: .9rem;;
+        }
+        transition: .3s ease-in-out;
+        .card:hover{
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+    }
+    .contactus-form{
+        
+      
+        button.booking-btn{
+            background-image: linear-gradient(45deg, #FFC000,#F2AD24);
+        }
+
+        input:focus{
+            border-color: #FFC000;
+        }
+    }
+}
+
+.active-branch{
+    background-color: #FFC000 !important;
+ }
+ .contact-card-backcol{
+    background-color: #F7F7F7;
+    
+ }

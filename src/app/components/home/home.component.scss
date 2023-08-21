@@ -1,0 +1,281 @@
+.home-banner{
+    background-image: url('../../../assets/images/bannerimg1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    padding-bottom: 200px;
+    color: white;
+    position: relative;
+    &::after{
+        width: 100%;
+        content: "";
+        position: absolute;
+        top:0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        z-index: 0;
+        opacity: 40%;
+        background-color: #000000;
+    }
+    
+    .home-rapper{
+        position: relative;
+        z-index: 1;
+        form{
+             label{
+                padding-top: 5px;
+             }
+            a{
+                background-color: #E2E2E2;
+                cursor: pointer;
+                text-decoration: none;
+                color: #F2AD24;
+            }
+
+            a:nth-of-type(1){
+            border-top-left-radius: 10px;
+
+            }
+            a:nth-of-type(2){
+                border-top-right-radius: 10px;
+                }
+           
+        }
+    }
+    
+    
+}
+
+.home-sec{
+    background-color:  #F7F7F7;
+  
+    .home-head{
+        position: relative;
+    }
+
+}
+.booking-sec{
+    button{
+        font-size: 15px;
+        transition: transform 1.2s ease-in-out;
+        &:hover{
+            transform: scale(1.2);
+             }
+
+    }
+    
+}
+
+.features-sec{
+    .small-card{
+        transition: transform 1.2s ease-in-out;
+        &:hover{
+            color: white;
+            background-color: black;
+            transform: scale(1.05);
+            transition: 1.3s ease-in-out;
+             
+        }
+    }
+
+
+}
+
+.location-sec{
+    position: relative;
+   
+        &::before{
+            background: url('../../../assets/svgs/Mask\ group\ \(1\).svg');
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            transform: rotate(180deg);
+            background-position: right;
+            background-repeat: no-repeat;
+        }
+       
+
+    
+}
+
+.trip-sec{
+    background-color:  #E2E2E2;
+    background: transparent linear-gradient(180deg, #F6F6F8 0%, #F8F8FA 92%, #FCFCFC 100%) 0% 0% no-repeat padding-box;
+    .img-rapper{
+        width: 100%;
+        height: 100%;
+        img{
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+    }
+     
+    .trip-circle{
+        width: 75px;
+        height: 75px;
+        font-size: 40px;
+        position: relative;
+        cursor: pointer;
+        svg{
+            position: relative;
+            background-color: #F7F7F7;
+        }
+        .trip-icon{
+            font-size: 18px;
+            display: flex;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            transform: translate(10px, 10px);
+     
+            i{
+                color: #FFC000;
+            }
+        }
+    }
+  }
+
+  .pricing-sec{
+
+    .pricing-card-rapper{
+        border-radius: 16px;
+        button{
+        font-family: "poppins-medium";
+         background-image: linear-gradient(45deg, #f26824,#ffc000);
+         font-size: 15px;
+         box-shadow: 4px 10px 22px #FFA01230;
+         color: white;
+        
+        }
+    
+        ul{
+            li{
+                cursor:pointer;
+                span{
+                    padding-right: 15px;
+                    background-position: right;
+                    background-size: cover;
+                    color: #FFC000;
+                    background: url('../../../assets/images/list-circle.png') no-repeat 0 0;
+                }
+            }
+           
+        }
+
+        :hover{
+            background-image: linear-gradient(to #FFC000,#F2AD24);
+            background-color: #F2AD24 !important;
+             color: white;
+             transition: transform 1.2s ease-in-out;
+             transform: scale(1.01);
+             
+            
+             p{
+                color: white;
+                opacity: 1;
+             }
+             ul{
+                li{
+                    span{
+                        border: 1px sold white;
+                        background:url('../../../assets/images/list-shine-circle.png') no-repeat 0 0;
+                    
+                    }
+                }
+             }
+             
+             button{
+                background-image: none;
+                background-color: white;
+                color: black;
+             }
+              
+          
+        }
+    } 
+
+
+
+  }
+
+  .testimonial-sec{
+    
+    .testimonial-carousels{
+        background-color: #FFC000;
+        position: relative;
+        .quotes{
+        position: absolute;
+        top: -60px;
+        left: 0px;
+        width: 100px;
+        height: 100px;
+         transform: rotate(0deg);
+             span{
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+             }
+        }
+        .testimonial-crd{
+            border-radius: 16px;
+            position: relative;
+            .user-img{
+                width: 60px;
+                height: 60px;
+                img{
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  border-radius: 50%;
+                  border: 2px solid #FFC000 ;
+                }
+            }
+            .dim-quotes{
+                width: 75px;
+                height: 75px;
+                
+                 span{
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+    
+    
+                    }
+
+                 }
+               
+
+            }
+
+            .card-image{
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+            }
+
+        }
+    }
+}
+  
+.active-btn{
+    font-family: "poppins-medium";
+    background-image: linear-gradient(45deg, #f26824, #ffc000);
+    box-shadow: 4px 10px 22px rgba(255, 160, 18, 0.1882352941);
+    color:white  !important; 
+}
+.show-row{
+    display: flex;
+}
+
+.hide-row{
+    display: none !important;
+}
