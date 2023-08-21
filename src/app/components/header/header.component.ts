@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, ElementRef, HostListener, ViewChild,OnInit,OnDestroy } from '@angular/core';
 import { NgbDateStruct, NgbTimeStruct, NgbModalConfig, NgbModal, NgbDatepickerConfig, NgbTimepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { CountriesService } from 'src/app/shared/services/custom/countries.service';
@@ -86,3 +87,54 @@ export class HeaderComponent implements OnInit,OnDestroy{
 
 }
 
+=======
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
+})
+export class HeaderComponent {
+  constructor(){
+
+  }
+  isNavbarCollapsed:boolean = true;
+  is_active:Boolean=true;
+  is_fixed:boolean=false;
+  screenWidth:any;
+  @ViewChild('open',{static:true})open_hamburger!:ElementRef;
+  @ViewChild('close',{static:true})close_ambburger!:ElementRef;
+  @ViewChild('navbar',{static:true})navbar!:ElementRef;
+  @HostListener('window:resize', [])
+  onWindowResize() { 
+    if(this.screenWidth>=767)
+    {
+      
+      this.is_fixed=false;
+      this.is_active=true;
+    
+      
+    }
+    
+  }
+  
+  toggleNavbar(){
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+  
+  showNav(){
+       this.is_active=!this.is_active;
+       this.is_fixed=!this.is_fixed;
+
+  }
+  hideNav(){
+    this.is_active=!this.is_active;
+    this.is_fixed=false;
+  
+  }
+
+ 
+
+}
+>>>>>>> 3b3dba6f7e291378fe455d35bc85dd91b3fe331f

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+<<<<<<< HEAD
 import { NgbModal, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './components/home/home.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -18,18 +19,28 @@ import { FaqsComponent } from './components/faqs/faqs.component';
 
 
 
+=======
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './components/home/home.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { RouterModule } from '@angular/router';
+>>>>>>> 3b3dba6f7e291378fe455d35bc85dd91b3fe331f
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+<<<<<<< HEAD
     HomeComponent,
     AboutUsComponent,
     BookingComponent,
     ContactUsComponent,
     FaqsComponent,
     
+=======
+    HomeComponent
+>>>>>>> 3b3dba6f7e291378fe455d35bc85dd91b3fe331f
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,7 @@ import { FaqsComponent } from './components/faqs/faqs.component';
     NgbModule,
     CarouselModule,
     RouterModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule
@@ -44,5 +56,11 @@ import { FaqsComponent } from './components/faqs/faqs.component';
   providers: [NgbModalConfig, NgbModal],
   bootstrap: [AppComponent]
 
+=======
+    BrowserAnimationsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+>>>>>>> 3b3dba6f7e291378fe455d35bc85dd91b3fe331f
 })
 export class AppModule { }
